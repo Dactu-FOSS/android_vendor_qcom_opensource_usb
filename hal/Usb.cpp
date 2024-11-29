@@ -427,6 +427,9 @@ static Status getCurrentRoleHelper(const std::string &portName, bool connected,
       currentRole.set<PortRole::powerRole>(PortPowerRole::SINK);
     else
       currentRole.set<PortRole::mode>(PortMode::UFP);
+    currentRole.set<PortRole::powerRole>(PortPowerRole::SOURCE);
+  } else if (roleName == "sink") {
+    currentRole.set<PortRole::powerRole>(PortPowerRole::SINK);
   } else if (roleName == "host") {
     if (currentRole.getTag() == PortRole::dataRole)
       currentRole.set<PortRole::dataRole>(PortDataRole::HOST);
